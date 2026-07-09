@@ -1,125 +1,77 @@
 #!/usr/bin/env node
-const { execFileSync } = require('child_process');
-const fs = require('fs');
-const path = require('path');
 
-function parseArgs(argv) {
-  const args = {};
-  for (let i = 0; i < argv.length; i += 1) {
-    const token = argv[i];
-    if (!token.startsWith('--')) continue;
+const fs = require("fs");
+const path = require("path");
+const { execSync } = require("child_process");
 
-    const key = token.slice(2);
-    const value = argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : true;
-    if (value !== true) {
-      i += 1;
+const BOOKS = {
+  strange: {
+    pdf: "pdf/strange.pdf",
+    output: "assets/books/strange"
+  },
+  fengxiang: {
+    pdf: "pdf/fengxiang.pdf",
+    output: "assets/books/fengxiang"
+  },
+  "self-learning": {
+    pdf: "pdf/self-learning.pdf",
+    output: "assets/books/self-learning"
+  }
+};
+
+const book = process.argv[2];
+
+if (!BOOKS[book]) {
+  console.log(`
+使用方式：
+
+node tools/convert-book.js strange
+node tools/convert-book.js fengxiang
+node tools/convert-book.js self-learning
+`);
+  process.exit(1);
+}
+
+const config = BOOKS[book];
+
+fs.mkdirSync(config.output, { recursive: true });
+
+// 刪除舊頁面（保留 cover/back-cover）
+fs.readdirSync(config.output)
+  .filter(f => /^page-\d+\.png$/.test(f))
+  .forEach(f => fs.unlinkSync(path.join(config.output, f)));
+
+console.log("📄 開始轉換 PDF...");
+
+execSync(
+  `pdftoppm -png "${config.pdf}" "${config.output}/page"`,
+  { stdio: "inherit" }
+);
+
+// 重新命名 page-1.png -> page-001.png
+fs.readdirSync(config.output)
+  .filter(f => /^page-\d+\.png$/.test(f))
+  .sort((a, b) => {
+    const na = parseInt(a.match(/\d+/)[0]);
+    const nb = parseInt(b.match(/\d+/)[0]);
+    return na - nb;
+  })
+  .forEach(file => {
+    const num = parseInt(file.match(/\d+/)[0]);
+    const newName = `page-${String(num).padStart(3, "0")}.png`;
+
+    if (file !== newName) {
+      fs.renameSync(
+        path.join(config.output, file),
+        path.join(config.output, newName)
+      );
     }
-    args[key] = value;
-  }
-  return args;
-}
-
-function ensureDir(dirPath) {
-  fs.mkdirSync(dirPath, { recursive: true });
-}
-
-function commandExists(command) {
-  try {
-    execFileSync('command', ['-v', command], { stdio: 'ignore' });
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-function run(command, args) {
-  console.log(`$ ${command} ${args.join(' ')}`);
-  execFileSync(command, args, { stdio: 'inherit' });
-}
-
-function convertWithQlmanage(inputPdf, outputDir) {
-  const tempDir = path.join(outputDir, '.tmp-pages');
-  ensureDir(tempDir);
-
-  const pageCount = 999;
-  for (let index = 0; index < pageCount; index += 1) {
-    const outFile = path.join(tempDir, `page-${String(index + 1).padStart(3, '0')}.png`);
-    const exists = fs.existsSync(outFile);
-    if (exists) {
-      fs.unlinkSync(outFile);
-    }
-  }
-
-  const args = [
-    '-c',
-    `import "${inputPdf}" -page 1-999 -resize 2048x2048 -format png "${tempDir}/page-%03d.png"`,
-  ];
-
-  run('qlmanage', args);
-
-  const generatedFiles = fs.readdirSync(tempDir)
-    .filter((file) => file.endsWith('.png'))
-    .sort((a, b) => a.localeCompare(b));
-
-  generatedFiles.forEach((file, index) => {
-    const sourcePath = path.join(tempDir, file);
-    const destPath = path.join(outputDir, `page-${String(index + 1).padStart(3, '0')}.png`);
-    fs.copyFileSync(sourcePath, destPath);
-    console.log(`Created ${path.relative(process.cwd(), destPath)}`);
   });
-}
 
-function convertWithSips(inputPdf, outputDir) {
-  ensureDir(outputDir);
-  const tempDir = path.join(outputDir, '.tmp-pages');
-  ensureDir(tempDir);
+const total = fs.readdirSync(config.output)
+  .filter(f => /^page-\d+\.png$/.test(f)).length;
 
-  run('sips', ['-s', 'format', 'png', inputPdf, '--out', tempDir]);
-
-  const generatedFiles = fs.readdirSync(tempDir)
-    .filter((file) => file.endsWith('.png') || file.endsWith('.PNG'))
-    .sort((a, b) => a.localeCompare(b));
-
-  generatedFiles.forEach((file, index) => {
-    const sourcePath = path.join(tempDir, file);
-    const destPath = path.join(outputDir, `page-${String(index + 1).padStart(3, '0')}.png`);
-    fs.copyFileSync(sourcePath, destPath);
-    console.log(`Created ${path.relative(process.cwd(), destPath)}`);
-  });
-}
-
-function convertBook(options = {}) {
-  const inputPdf = path.resolve(options.input || 'pdf/strange-stories.pdf');
-  const bookId = options.book || 'strange';
-  const outputDir = path.resolve(options.output || path.join('assets', 'books', bookId));
-
-  if (!fs.existsSync(inputPdf)) {
-    throw new Error(`PDF not found: ${inputPdf}`);
-  }
-
-  ensureDir(outputDir);
-
-  if (commandExists('qlmanage')) {
-    convertWithQlmanage(inputPdf, outputDir);
-    return;
-  }
-
-  if (commandExists('sips')) {
-    convertWithSips(inputPdf, outputDir);
-    return;
-  }
-
-  throw new Error('No supported macOS tools found. Please ensure qlmanage or sips is available.');
-}
-
-function main() {
-  const args = parseArgs(process.argv.slice(2));
-  try {
-    convertBook(args);
-  } catch (error) {
-    console.error(error.message);
-    process.exit(1);
-  }
-}
-
-main();
+console.log("");
+console.log("✅ 完成！");
+console.log(`📚 ${book}`);
+console.log(`📄 共 ${total} 頁`);
