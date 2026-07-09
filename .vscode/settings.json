@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cd /Users/chiahaolin/Documents/GitHub/heping-press && python3 - <<'PY'\nimport subprocess, json, re\ntext = subprocess\\.check_output\\(\\['git','show','HEAD:data\\.js'\\], text=True\\)\nstart = text\\.index\\('const library = \\{'\\) \\+ len\\('const library = '\\)\nend = text\\.rindex\\('\\};'\\)\nobj_text = text\\[start:end\\]\\.strip\\(\\)\nprint\\(obj_text\\[:300\\]\\)\nprint\\('---'\\)\nprint\\(json\\.loads\\(obj_text\\)\\)\nPY$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>和平出版社｜奇聞軼事</title>
+  <title>和平出版社｜數位圖書館</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,15 +11,36 @@
     <div class="home-bg"></div>
     <nav class="home-nav">
       <span>和平出版社</span>
-      <a href="#library">進入書本</a>
+      <a href="#readerApp">直接閱讀</a>
     </nav>
     <div class="home-inner">
       <p class="eyebrow">Heping Press Digital Library</p>
-      <h1>奇聞軼事</h1>
-      <p class="home-lead">故事會結束，但成長不會。</p>
-      <div class="home-actions">
-        <button id="startReading" class="primary">開始閱讀</button>
-        <a class="secondary" href="#catalog">查看目錄</a>
+      <h1>和平出版社</h1>
+      <p class="home-lead">請選擇想閱讀的故事集</p>
+      <div class="library-grid">
+        <div class="library-card">
+          <div class="card-visual">📕</div>
+          <div class="card-body">
+            <h3>奇聞軼事</h3>
+            <p>怪奇、荒謬、幽默與想像的校園故事集。</p>
+            <div class="card-footer">
+              <span class="card-note">點擊：進入原本閱讀器</span>
+              <button id="startReading" class="card-action" type="button">進入閱讀</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="library-card">
+          <div class="card-visual">📗</div>
+          <div class="card-body">
+            <h3>楓香辭典</h3>
+            <p>以外星人艾利恩的視角記錄和平實小校園生活。</p>
+            <div class="card-footer">
+              <span class="card-note">點擊：進入閱讀器閱讀</span>
+              <button id="openDictionary" class="card-action secondary" type="button">進入閱讀</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -74,11 +95,11 @@
       </section>
 
       <section class="controls">
-        <button id="prevStory">上一篇</button>
-        <button id="prevPage">上一頁</button>
-        <span id="progress"></span>
-        <button id="nextPage">下一頁</button>
-        <button id="nextStory">下一篇</button>
+        <button id="prevStory" class="story-btn">上一篇</button>
+        <button id="prevPage" class="page-btn">上一頁</button>
+        <span id="progress" class="progress-indicator"></span>
+        <button id="nextPage" class="page-btn">下一頁</button>
+        <button id="nextStory" class="story-btn">下一篇</button>
       </section>
 
       <section id="endCard" class="end-card hidden">
