@@ -44,7 +44,8 @@ const books = [
     subtitle: "楓香故事集",
     description: "一切從校園裡那些說不清、講不明，卻又讓人忍不住想繼續聽下去的故事開始。",
     totalPages: 254,
-    cover: "assets/books/strange/cover.webp",
+    cover: "assets/books/strange/cover.png",
+    backCover: "assets/books/strange/back-cover.png",
     imagePattern: "assets/books/strange/page-{page}.png",
     stories: [
       {

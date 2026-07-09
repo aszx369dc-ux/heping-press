@@ -29,6 +29,45 @@ function getCurrentStory() {
   return activeStories[currentStoryIndex] || activeStories[0] || null;
 }
 
+function syncStoryIndexByPage(page) {
+  const activeStories = getActiveStories();
+  if (!activeStories.length || page < 1) {
+    return;
+  }
+
+  let nextIndex = 0;
+  for (let i = 0; i < activeStories.length; i++) {
+    const startPage = activeStories[i].startPage || 1;
+    if (startPage <= page) {
+      nextIndex = i;
+    } else {
+      break;
+    }
+  }
+
+  currentStoryIndex = nextIndex;
+}
+
+function supportsCoverPages(book) {
+  return Boolean(book && book.id === "strange");
+}
+
+function hasCover(book) {
+  return supportsCoverPages(book) && Boolean(book.cover);
+}
+
+function hasBackCover(book) {
+  return supportsCoverPages(book) && Boolean(book.backCover);
+}
+
+function getMinReadablePage(book) {
+  return hasCover(book) ? 0 : 1;
+}
+
+function getMaxReadablePage(book) {
+  return hasBackCover(book) ? (book.totalPages || 0) + 1 : (book.totalPages || 0);
+}
+
 function bookStats() {
   const activeStories = getActiveStories();
   const bookMeta = getCurrentBook();
@@ -143,21 +182,31 @@ function buildCatalog() {
 function render() {
   const activeStories = getActiveStories();
   const book = getCurrentBook();
-  const story = getCurrentStory();
   const showFeatured = shouldShowFeatured();
-  if (!story) {
+  if (!activeStories.length) {
     return;
   }
 
+  if (currentPage < getMinReadablePage(book)) {
+    currentPage = getMinReadablePage(book);
+  }
+  if (currentPage > getMaxReadablePage(book)) {
+    currentPage = getMaxReadablePage(book);
+  }
+
+  const isCoverPage = hasCover(book) && currentPage === 0;
+  const isBackCoverPage = hasBackCover(book) && currentPage === (book.totalPages || 0) + 1;
+
+  if (!isCoverPage && !isBackCoverPage) {
+    syncStoryIndexByPage(currentPage);
+  }
+
+  const story = getCurrentStory();
+  if (!story) {
+    return;
+  }
   const storyStartPage = typeof story.startPage === "number" ? story.startPage : 1;
   const storyEndPage = getStoryEndPage(currentBookId, currentStoryIndex) || book.totalPages || storyStartPage;
-
-  if (currentPage < storyStartPage) {
-    currentPage = storyStartPage;
-  }
-  if (currentPage > storyEndPage) {
-    currentPage = storyEndPage;
-  }
 
   document.querySelector(".side-head h2").textContent = book.title;
   document.querySelectorAll('.filter[data-filter="featured"]').forEach(btn => {
@@ -170,19 +219,52 @@ function render() {
     : `作者｜${story.author}`;
 
   const pageImg = document.getElementById("pageImg");
-  const img = getPageImage(currentBookId, currentPage);
+  const img = isCoverPage
+    ? book.cover
+    : isBackCoverPage
+      ? book.backCover
+      : getPageImage(currentBookId, currentPage);
   if (img) {
+    pageImg.onerror = () => {
+      pageImg.onerror = null;
+      if (isCoverPage) {
+        currentPage = 1;
+        syncStoryIndexByPage(currentPage);
+        render();
+        return;
+      }
+      if (isBackCoverPage) {
+        currentPage = book.totalPages || storyEndPage;
+        syncStoryIndexByPage(currentPage);
+        render();
+        return;
+      }
+      pageImg.removeAttribute("src");
+    };
     pageImg.src = img;
-    pageImg.alt = `${story.title} 第 ${currentPage} 頁`;
+    pageImg.alt = isCoverPage
+      ? `${book.title} 封面`
+      : isBackCoverPage
+        ? `${book.title} 封底`
+        : `${story.title} 第 ${currentPage} 頁`;
   } else {
+    pageImg.onerror = null;
     pageImg.removeAttribute("src");
   }
 
-  document.getElementById("pageCaption").textContent = `${story.title}｜第 ${currentPage} 頁 / 共 ${book.totalPages} 頁`;
-  document.getElementById("progress").textContent = `第 ${currentPage} 頁 / 共 ${book.totalPages} 頁`;
+  document.getElementById("pageCaption").textContent = isCoverPage
+    ? "封面"
+    : isBackCoverPage
+      ? "封底"
+      : `${story.title}｜第 ${currentPage} 頁 / 共 ${book.totalPages} 頁`;
+  document.getElementById("progress").textContent = isCoverPage
+    ? "封面"
+    : isBackCoverPage
+      ? "封底"
+      : `第 ${currentPage} 頁 / 共 ${book.totalPages} 頁`;
 
-  const atFirst = currentStoryIndex === 0 && currentPage === storyStartPage;
-  const atLast = currentStoryIndex === activeStories.length - 1 && currentPage === storyEndPage;
+  const atFirst = currentStoryIndex === 0 && currentPage === getMinReadablePage(book);
+  const atLast = currentStoryIndex === activeStories.length - 1 && currentPage === getMaxReadablePage(book);
   ["prevTurn", "prevPage"].forEach(id => document.getElementById(id).disabled = atFirst);
   ["nextTurn", "nextPage"].forEach(id => document.getElementById(id).disabled = atLast);
   document.getElementById("prevStory").disabled = currentStoryIndex === 0;
@@ -201,38 +283,41 @@ function render() {
 }
 
 function nextPage() {
-  const activeStories = getActiveStories();
-  const story = getCurrentStory();
-  if (!story) {
+  const book = getCurrentBook();
+  if (!getActiveStories().length) {
     render();
     return;
   }
 
-  const storyEndPage = getStoryEndPage(currentBookId, currentStoryIndex) || getCurrentBook().totalPages || currentPage;
-  if (currentPage < storyEndPage) {
+  syncStoryIndexByPage(currentPage);
+
+  if (hasCover(book) && currentPage === 0) {
+    currentPage = 1;
+    syncStoryIndexByPage(currentPage);
+  } else if (currentPage < (book.totalPages || 0)) {
     currentPage++;
-  } else if (currentStoryIndex < activeStories.length - 1) {
-    currentStoryIndex++;
-    const nextStory = getCurrentStory();
-    currentPage = nextStory && typeof nextStory.startPage === "number" ? nextStory.startPage : 1;
+    syncStoryIndexByPage(currentPage);
+  } else if (currentPage === (book.totalPages || 0) && hasBackCover(book)) {
+    currentPage = (book.totalPages || 0) + 1;
   }
   render();
 }
 
 function prevPage() {
-  const story = getCurrentStory();
-  if (!story) {
+  const book = getCurrentBook();
+  if (!getActiveStories().length) {
     render();
     return;
   }
 
-  const storyStartPage = typeof story.startPage === "number" ? story.startPage : 1;
-  if (currentPage > storyStartPage) {
+  if (hasBackCover(book) && currentPage === (book.totalPages || 0) + 1) {
+    currentPage = book.totalPages || 1;
+    syncStoryIndexByPage(currentPage);
+  } else if (currentPage > 1) {
     currentPage--;
-  } else if (currentStoryIndex > 0) {
-    currentStoryIndex--;
-    const prevStory = getCurrentStory();
-    currentPage = prevStory && typeof prevStory.startPage === "number" ? prevStory.startPage : 1;
+    syncStoryIndexByPage(currentPage);
+  } else if (hasCover(book)) {
+    currentPage = 0;
   }
   render();
 }
