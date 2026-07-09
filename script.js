@@ -7,6 +7,14 @@ const catalog = document.getElementById("catalog");
 const sidebar = document.getElementById("sidebar");
 const searchInput = document.getElementById("searchInput");
 
+function isSelfLearningBook() {
+  return currentBookId === "selfLearning";
+}
+
+function shouldShowFeatured() {
+  return getActiveStories().some(story => story.featured === true);
+}
+
 function getActiveStories() {
   const book = getBook(currentBookId);
   return book ? book.stories : [];
@@ -24,15 +32,20 @@ function getCurrentStory() {
 function bookStats() {
   const activeStories = getActiveStories();
   const bookMeta = getCurrentBook();
+  const showFeatured = shouldShowFeatured();
   const introTitle = document.querySelector(".book-cover h2");
   const introDesc = document.querySelector(".book-about h2");
   const introText = document.querySelector(".book-about p:nth-of-type(2)");
-  const heading = bookMeta.aboutHeading || (bookMeta.title === "楓香辭典"
+  const heading = bookMeta.aboutHeading || (currentBookId === "fengxiang"
     ? "一本由艾利恩記錄下來的和平實小校園日常"
-    : "一本由孩子共同打造的和平怪奇宇宙");
-  const body = bookMeta.aboutBody || (bookMeta.title === "楓香辭典"
+    : isSelfLearningBook()
+      ? "一本關於自主探索與成長的故事"
+      : "一本由孩子共同打造的和平怪奇宇宙");
+  const body = bookMeta.aboutBody || (currentBookId === "fengxiang"
     ? "這裡收錄《楓香辭典》整本內容，點擊後即可在閱讀器中連續翻閱。"
-    : "這裡收錄《奇聞異事》全 36 篇故事。家長可以依照章節閱讀，也可以直接從第一篇開始，一頁一頁翻到最後。"
+    : isSelfLearningBook()
+      ? "收錄《自主學習》36 篇故事，透過角色的成長歷程，帶領讀者看見和平實小自主探索、選修課與個展課程的學習樣貌。"
+      : "這裡收錄《奇聞異事》全 36 篇故事。家長可以依照章節閱讀，也可以直接從第一篇開始，一頁一頁翻到最後。"
   );
 
   document.querySelector(".book-cover p").textContent = bookMeta.subtitle || bookMeta.group || "和平出版社";
@@ -42,7 +55,7 @@ function bookStats() {
   document.getElementById("bookStats").innerHTML = `
     <span class="stat">全書 ${activeStories.length} 篇</span>
     <span class="stat">共 ${bookMeta.totalPages || 0} 頁</span>
-    <span class="stat">紙本精選 ${activeStories.filter(s => s.featured).length} 篇</span>
+    ${showFeatured ? `<span class="stat">紙本精選 ${activeStories.filter(s => s.featured).length} 篇</span>` : ""}
   `;
 }
 
@@ -61,6 +74,7 @@ function setBook(bookId) {
 function buildCatalog() {
   const keyword = searchInput.value.trim().toLowerCase();
   const book = getCurrentBook();
+  const showFeatured = shouldShowFeatured();
 
   if (book.chapters) {
     const filtered = book.chapters.filter(ch => {
@@ -102,7 +116,7 @@ function buildCatalog() {
   catalog.innerHTML = chapters.map(ch => {
     const items = filtered.filter(s => s.chapter === ch).map(s => `
       <button class="toc-btn ${s.i === currentStoryIndex ? "active" : ""}" data-index="${s.i}">
-        ${s.number}　${s.title}${s.featured ? "　⭐" : ""}
+        ${s.number}　${s.title}${showFeatured && s.featured ? "　⭐" : ""}
         <small>${s.author}　P.${s.startPage || 1}</small>
       </button>
     `).join("");
@@ -130,6 +144,7 @@ function render() {
   const activeStories = getActiveStories();
   const book = getCurrentBook();
   const story = getCurrentStory();
+  const showFeatured = shouldShowFeatured();
   if (!story) {
     return;
   }
@@ -145,9 +160,14 @@ function render() {
   }
 
   document.querySelector(".side-head h2").textContent = book.title;
+  document.querySelectorAll('.filter[data-filter="featured"]').forEach(btn => {
+    btn.hidden = !showFeatured;
+  });
   document.getElementById("chapterLabel").textContent = `${story.chapter}｜第 ${story.number} 篇`;
   document.getElementById("storyTitle").textContent = story.title;
-  document.getElementById("storyMeta").textContent = `作者｜${story.author}${story.featured ? "｜紙本精選 ⭐" : "｜電子版"}`;
+  document.getElementById("storyMeta").textContent = showFeatured
+    ? `作者｜${story.author}${story.featured ? "｜紙本精選 ⭐" : "｜電子版"}`
+    : `作者｜${story.author}`;
 
   const pageImg = document.getElementById("pageImg");
   const img = getPageImage(currentBookId, currentPage);
@@ -236,6 +256,11 @@ document.getElementById("startReading").addEventListener("click", () => {
 document.getElementById("openDictionary").addEventListener("click", () => {
   document.getElementById("readerApp").scrollIntoView({ behavior: "smooth" });
   setBook("fengxiang");
+});
+
+document.getElementById("openSelfLearning").addEventListener("click", () => {
+  document.getElementById("readerApp").scrollIntoView({ behavior: "smooth" });
+  setBook("selfLearning");
 });
 
 document.getElementById("menuBtn").addEventListener("click", () => sidebar.classList.add("open"));

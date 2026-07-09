@@ -619,5 +619,304 @@ const books = [
         featured: false
       }
     ]
+  },
+  {
+    id: "selfLearning",
+    title: "自主學習",
+    subtitle: "楓香故事集",
+    description: "以角色成長為主軸，串起和平實小從低年級到高年級的自主探索、選修課與個展歷程。",
+    totalPages: 318,
+    cover: "",
+    imagePattern: "assets/books/self-learning/page-{page}.png",
+    stories: [
+      {
+        number: "01",
+        chapter: "第一章 低年級｜王妖貓",
+        title: "王妖貓的新生日常",
+        author: "蘇柏宇",
+        startPage: 1,
+        featured: false
+      },
+      {
+        number: "02",
+        chapter: "第一章 低年級｜王妖貓",
+        title: "刺激的樂樂棒球賽",
+        author: "王元謙",
+        startPage: 11,
+        featured: true
+      },
+      {
+        number: "03",
+        chapter: "第一章 低年級｜王妖貓",
+        title: "足球的風波",
+        author: "王日霖",
+        startPage: 17,
+        featured: true
+      },
+      {
+        number: "04",
+        chapter: "第一章 低年級｜王妖貓",
+        title: "不知所措的體適能",
+        author: "王日霖",
+        startPage: 25,
+        featured: false
+      },
+      {
+        number: "05",
+        chapter: "第一章 低年級｜王妖貓",
+        title: "美躲的比賽衝突",
+        author: "王元謙",
+        startPage: 31,
+        featured: false
+      },
+      {
+        number: "06",
+        chapter: "第一章 低年級｜王妖貓",
+        title: "自主探索的突發狀況",
+        author: "蘇柏宇",
+        startPage: 43,
+        featured: true
+      },
+      {
+        number: "07",
+        chapter: "第一章 低年級｜林曉桐",
+        title: "林曉桐的新生日常",
+        author: "蘇柏宇",
+        startPage: 53,
+        featured: true
+      },
+      {
+        number: "08",
+        chapter: "第一章 低年級｜林曉桐",
+        title: "林曉桐的無聊體適能",
+        author: "王元謙",
+        startPage: 60,
+        featured: false
+      },
+      {
+        number: "09",
+        chapter: "第一章 低年級｜林曉桐",
+        title: "林曉桐的下課趣事",
+        author: "王元謙",
+        startPage: 66,
+        featured: true
+      },
+      {
+        number: "10",
+        chapter: "第一章 低年級｜林曉桐",
+        title: "林曉桐的美躲初體驗",
+        author: "蘇柏宇",
+        startPage: 73,
+        featured: false
+      },
+      {
+        number: "11",
+        chapter: "第一章 低年級｜林曉桐",
+        title: "自主探索的好去處",
+        author: "王日霖",
+        startPage: 79,
+        featured: false
+      },
+      {
+        number: "12",
+        chapter: "第一章 低年級｜林曉桐",
+        title: "下課的社團時光",
+        author: "王日霖",
+        startPage: 87,
+        featured: true
+      },
+      {
+        number: "13",
+        chapter: "第二章 中年級｜選修課的選擇",
+        title: "「選修課」？",
+        author: "潘長歆恬",
+        startPage: 93,
+        featured: true
+      },
+      {
+        number: "14",
+        chapter: "第二章 中年級｜選修課的選擇",
+        title: "難以做出決定",
+        author: "方昱蘅",
+        startPage: 103,
+        featured: false
+      },
+      {
+        number: "15",
+        chapter: "第二章 中年級｜各種選修課",
+        title: "你做的每一件事都是有前因後果的",
+        author: "賴于媗",
+        startPage: 111,
+        featured: true
+      },
+      {
+        number: "16",
+        chapter: "第二章 中年級｜各種選修課",
+        title: "成就感",
+        author: "方昱蘅",
+        startPage: 122,
+        featured: true
+      },
+      {
+        number: "17",
+        chapter: "第二章 中年級｜各種選修課",
+        title: "總有一天，我會走出陰影",
+        author: "潘長歆恬",
+        startPage: 128,
+        featured: true
+      },
+      {
+        number: "18",
+        chapter: "第二章 中年級｜各種選修課",
+        title: "不要太高估自己",
+        author: "賴于媗",
+        startPage: 137,
+        featured: false
+      },
+      {
+        number: "19",
+        chapter: "第二章 中年級｜各種選修課",
+        title: "並不是任何事情都很簡單",
+        author: "賴于媗",
+        startPage: 151,
+        featured: false
+      },
+      {
+        number: "20",
+        chapter: "第二章 中年級｜各種選修課",
+        title: "無聊的選修課",
+        author: "潘長歆恬",
+        startPage: 163,
+        featured: false
+      },
+      {
+        number: "21",
+        chapter: "第二章 中年級｜各種選修課",
+        title: "克服困難也是一種技能",
+        author: "賴于媗",
+        startPage: 169,
+        featured: true
+      },
+      {
+        number: "22",
+        chapter: "第二章 中年級｜各種選修課",
+        title: "沒有什麼是完美的",
+        author: "潘長歆恬",
+        startPage: 180,
+        featured: false
+      },
+      {
+        number: "23",
+        chapter: "第二章 中年級｜各種選修課",
+        title: "要專心聽課",
+        author: "方昱蘅",
+        startPage: 190,
+        featured: false
+      },
+      {
+        number: "24",
+        chapter: "第二章 中年級｜各種選修課",
+        title: "總是有辦法的",
+        author: "方昱蘅",
+        startPage: 197,
+        featured: true
+      },
+      {
+        number: "25",
+        chapter: "第三章 高年級｜體適能",
+        title: "揮灑汗水的一場樂樂棒比賽",
+        author: "謝濟謙",
+        startPage: 204,
+        featured: false
+      },
+      {
+        number: "26",
+        chapter: "第三章 高年級｜體適能",
+        title: "羽球比賽的那堵牆",
+        author: "李夏澄",
+        startPage: 215,
+        featured: false
+      },
+      {
+        number: "27",
+        chapter: "第三章 高年級｜林曉桐的個展",
+        title: "無聊的選修課-獨立研究",
+        author: "陳慶甯",
+        startPage: 229,
+        featured: true
+      },
+      {
+        number: "28",
+        chapter: "第三章 高年級｜林曉桐的個展",
+        title: "想不到主題的個展",
+        author: "陳慶甯",
+        startPage: 239,
+        featured: true
+      },
+      {
+        number: "29",
+        chapter: "第三章 高年級｜林曉桐的個展",
+        title: "進度落後的個展歷程",
+        author: "陳慶甯",
+        startPage: 246,
+        featured: false
+      },
+      {
+        number: "30",
+        chapter: "第三章 高年級｜林曉桐的個展",
+        title: "緊張的個展發表會",
+        author: "陳慶甯",
+        startPage: 254,
+        featured: false
+      },
+      {
+        number: "31",
+        chapter: "第三章 高年級｜羅妍雪的個展",
+        title: "在漫畫中開啟的序章",
+        author: "李夏澄",
+        startPage: 263,
+        featured: false
+      },
+      {
+        number: "32",
+        chapter: "第三章 高年級｜羅妍雪的個展",
+        title: "個展冒險",
+        author: "李夏澄",
+        startPage: 277,
+        featured: true
+      },
+      {
+        number: "33",
+        chapter: "第三章 高年級｜羅妍雪的個展",
+        title: "光照進的個展報告",
+        author: "李夏澄",
+        startPage: 287,
+        featured: true
+      },
+      {
+        number: "34",
+        chapter: "第三章 高年級｜王妖貓的個展",
+        title: "豎立在我面前的個展這道牆",
+        author: "謝濟謙",
+        startPage: 299,
+        featured: false
+      },
+      {
+        number: "35",
+        chapter: "第三章 高年級｜王妖貓的個展",
+        title: "一場令人煩惱的冒險",
+        author: "謝濟謙",
+        startPage: 306,
+        featured: true
+      },
+      {
+        number: "36",
+        chapter: "第三章 高年級｜王妖貓的個展",
+        title: "個展的奇幻旅程",
+        author: "謝濟謙",
+        startPage: 313,
+        featured: true
+      }
+    ]
   }
 ];
