@@ -48,7 +48,7 @@ function bookStats() {
       : "這裡收錄《奇聞異事》全 36 篇故事。家長可以依照章節閱讀，也可以直接從第一篇開始，一頁一頁翻到最後。"
   );
 
-  document.querySelector(".book-cover p").textContent = bookMeta.subtitle || bookMeta.group || "和平出版社";
+  document.querySelector(".book-cover p").textContent = bookMeta.subtitle || bookMeta.group || "和平故事集";
   introTitle.textContent = bookMeta.title;
   introDesc.textContent = heading;
   introText.textContent = body;
