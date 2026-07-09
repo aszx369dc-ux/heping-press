@@ -40,7 +40,7 @@ function getPageImage(bookId, page) {
 const books = [
   {
     id: "strange",
-    title: "奇聞軼事",
+    title: "奇聞異事",
     subtitle: "楓香故事集",
     description: "一切從校園裡那些說不清、講不明，卻又讓人忍不住想繼續聽下去的故事開始。",
     totalPages: 254,

@@ -13,7 +13,7 @@ function getActiveStories() {
 }
 
 function getCurrentBook() {
-  return getBook(currentBookId) || { title: "奇聞軼事", subtitle: "", description: "", year: "", group: "", totalPages: 1 };
+  return getBook(currentBookId) || { title: "奇聞異事", subtitle: "", description: "", year: "", group: "", totalPages: 1 };
 }
 
 function getCurrentStory() {
@@ -32,7 +32,7 @@ function bookStats() {
     : "一本由孩子共同打造的和平怪奇宇宙");
   const body = bookMeta.aboutBody || (bookMeta.title === "楓香辭典"
     ? "這裡收錄《楓香辭典》整本內容，點擊後即可在閱讀器中連續翻閱。"
-    : "這裡收錄《奇聞軼事》全 36 篇故事。家長可以依照章節閱讀，也可以直接從第一篇開始，一頁一頁翻到最後。"
+    : "這裡收錄《奇聞異事》全 36 篇故事。家長可以依照章節閱讀，也可以直接從第一篇開始，一頁一頁翻到最後。"
   );
 
   document.querySelector(".book-cover p").textContent = bookMeta.subtitle || bookMeta.group || "和平出版社";
