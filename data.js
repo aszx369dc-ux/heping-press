@@ -344,7 +344,8 @@ const books = [
     subtitle: "楓香故事集",
     description: "以外星人艾利恩的視角，紀錄和平實驗小學的生活與文化。",
     totalPages: 299,
-    cover: "",
+    cover: "assets/books/fengxiang/cover.png",
+    backCover: "assets/books/fengxiang/back-cover.png",
     imagePattern: "assets/books/fengxiang/page-{page}.png",
     stories: [
       {

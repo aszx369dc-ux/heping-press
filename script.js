@@ -49,7 +49,10 @@ function syncStoryIndexByPage(page) {
 }
 
 function supportsCoverPages(book) {
-  return Boolean(book && book.id === "strange");
+  return Boolean(
+    book &&
+    ["strange", "fengxiang"].includes(book.id)
+  );
 }
 
 function hasCover(book) {
