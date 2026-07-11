@@ -375,6 +375,24 @@ button:disabled{opacity:.35;cursor:not-allowed}
   text-align:center;
 }
 .hidden{display:none}
+.focus-close-btn{
+  display:none;
+  position:fixed;
+  top:16px;
+  right:16px;
+  width:48px;
+  height:48px;
+  border:0;
+  border-radius:50%;
+  background:rgba(0,0,0,.52);
+  color:#fff;
+  font-size:24px;
+  line-height:1;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+  box-shadow:0 10px 24px rgba(0,0,0,.24);
+}
 footer{
   text-align:center;
   color:var(--muted);
@@ -397,6 +415,7 @@ body.focus .stage{
   grid-template-columns:58px 1fr 58px;
 }
 body.focus #pageImg{max-height:88vh}
+body.focus .focus-close-btn{display:inline-flex}
 @media(max-width:900px){
   .book-intro{grid-template-columns:1fr;padding:54px 0}
   .book-cover{max-width:310px;margin:auto}
@@ -419,6 +438,10 @@ body.focus #pageImg{max-height:88vh}
   .turn{display:none}
   .page{padding:8px;border-radius:18px}
   #pageImg{max-height:70vh;border-radius:12px}
+  .focus-close-btn{
+    top:12px;
+    right:12px;
+  }
   .controls{gap:10px}
   .controls button{flex:1 1 calc(50% - 10px);min-width:0}
   .progress-indicator{flex:1 1 100%;min-width:0}

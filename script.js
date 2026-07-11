@@ -6,6 +6,7 @@ let filter = "all";
 const catalog = document.getElementById("catalog");
 const sidebar = document.getElementById("sidebar");
 const searchInput = document.getElementById("searchInput");
+const exitFocusBtn = document.getElementById("exitFocusBtn");
 
 function isSelfLearningBook() {
   return currentBookId === "selfLearning";
@@ -69,6 +70,11 @@ function getMinReadablePage(book) {
 
 function getMaxReadablePage(book) {
   return hasBackCover(book) ? (book.totalPages || 0) + 1 : (book.totalPages || 0);
+}
+
+function exitFocusMode() {
+  sidebar.classList.remove("open");
+  document.body.classList.remove("focus");
 }
 
 function updateIntroCover(bookMeta) {
@@ -388,6 +394,7 @@ document.getElementById("openSelfLearning").addEventListener("click", () => {
 document.getElementById("menuBtn").addEventListener("click", () => sidebar.classList.add("open"));
 document.getElementById("closeMenu").addEventListener("click", () => sidebar.classList.remove("open"));
 document.getElementById("focusBtn").addEventListener("click", () => document.body.classList.toggle("focus"));
+exitFocusBtn.addEventListener("click", exitFocusMode);
 
 document.getElementById("nextTurn").addEventListener("click", nextPage);
 document.getElementById("nextPage").addEventListener("click", nextPage);
@@ -412,8 +419,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") nextPage();
   if (e.key === "ArrowLeft") prevPage();
   if (e.key === "Escape") {
-    sidebar.classList.remove("open");
-    document.body.classList.remove("focus");
+    exitFocusMode();
   }
 });
 
