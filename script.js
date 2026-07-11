@@ -51,7 +51,7 @@ function syncStoryIndexByPage(page) {
 function supportsCoverPages(book) {
   return Boolean(
     book &&
-    ["strange", "fengxiang"].includes(book.id)
+    ["strange", "fengxiang", "selfLearning"].includes(book.id)
   );
 }
 
@@ -69,6 +69,39 @@ function getMinReadablePage(book) {
 
 function getMaxReadablePage(book) {
   return hasBackCover(book) ? (book.totalPages || 0) + 1 : (book.totalPages || 0);
+}
+
+function updateIntroCover(bookMeta) {
+  const coverCard = document.querySelector(".book-cover");
+  const coverImage = document.getElementById("bookCoverImage");
+
+  if (!coverCard || !coverImage) {
+    return;
+  }
+
+  if (bookMeta.cover) {
+    coverImage.onerror = () => {
+      coverImage.onerror = null;
+      coverImage.hidden = true;
+      coverImage.removeAttribute("src");
+      coverImage.alt = "";
+      coverCard.classList.remove("has-image");
+    };
+    coverImage.onload = () => {
+      coverCard.classList.add("has-image");
+      coverImage.hidden = false;
+    };
+    coverImage.src = bookMeta.cover;
+    coverImage.alt = `${bookMeta.title} 封面`;
+    return;
+  }
+
+  coverImage.onerror = null;
+  coverImage.onload = null;
+  coverImage.hidden = true;
+  coverImage.removeAttribute("src");
+  coverImage.alt = "";
+  coverCard.classList.remove("has-image");
 }
 
 function bookStats() {
@@ -92,6 +125,7 @@ function bookStats() {
 
   document.querySelector(".book-cover p").textContent = bookMeta.subtitle || bookMeta.group || "和平故事集";
   introTitle.textContent = bookMeta.title;
+  updateIntroCover(bookMeta);
   introDesc.textContent = heading;
   introText.textContent = body;
   document.getElementById("bookStats").innerHTML = `

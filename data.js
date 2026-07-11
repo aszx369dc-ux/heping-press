@@ -628,7 +628,8 @@ const books = [
     subtitle: "楓香故事集",
     description: "以角色成長為主軸，串起和平實小從低年級到高年級的自主探索、選修課與個展歷程。",
     totalPages: 318,
-    cover: "",
+    cover: "assets/books/self-learning/cover.png",
+    backCover: "assets/books/self-learning/back-cover.png",
     imagePattern: "assets/books/self-learning/page-{page}.png",
     stories: [
       {
