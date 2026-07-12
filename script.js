@@ -52,7 +52,7 @@ function syncStoryIndexByPage(page) {
 function supportsCoverPages(book) {
   return Boolean(
     book &&
-    ["strange", "fengxiang", "selfLearning"].includes(book.id)
+    ["strange", "fengxiang", "selfLearning", "teacherManual"].includes(book.id)
   );
 }
 
@@ -119,14 +119,18 @@ function bookStats() {
   const introText = document.querySelector(".book-about p:nth-of-type(2)");
   const heading = bookMeta.aboutHeading || (currentBookId === "fengxiang"
     ? "一本由艾利恩記錄下來的和平實小校園日常"
-    : isSelfLearningBook()
-      ? "一本關於自主探索與成長的故事"
-      : "一本由孩子共同打造的和平怪奇宇宙");
+    : currentBookId === "teacherManual"
+      ? "一本關於師生相遇與彼此理解的故事"
+      : isSelfLearningBook()
+        ? "一本關於自主探索與成長的故事"
+        : "一本由孩子共同打造的和平怪奇宇宙");
   const body = bookMeta.aboutBody || (currentBookId === "fengxiang"
     ? "這裡收錄《楓香辭典》整本內容，點擊後即可在閱讀器中連續翻閱。"
-    : isSelfLearningBook()
-      ? "收錄《自主學習》36 篇故事，透過角色的成長歷程，帶領讀者看見和平實小自主探索、選修課與個展課程的學習樣貌。"
-      : "這裡收錄《奇聞異事》全 36 篇故事。家長可以依照章節閱讀，也可以直接從第一篇開始，一頁一頁翻到最後。"
+    : currentBookId === "teacherManual"
+      ? "收錄《老師使用說明書》36 篇故事，從低年級依賴老師的日常，到師生磨合、教學風格與友誼建立，呈現和平實小師生互動的多元樣貌。"
+      : isSelfLearningBook()
+        ? "收錄《自主學習》36 篇故事，透過角色的成長歷程，帶領讀者看見和平實小自主探索、選修課與個展課程的學習樣貌。"
+        : "這裡收錄《奇聞異事》全 36 篇故事。家長可以依照章節閱讀，也可以直接從第一篇開始，一頁一頁翻到最後。"
   );
 
   document.querySelector(".book-cover p").textContent = bookMeta.subtitle || bookMeta.group || "和平故事集";
@@ -389,6 +393,11 @@ document.getElementById("openDictionary").addEventListener("click", () => {
 document.getElementById("openSelfLearning").addEventListener("click", () => {
   document.getElementById("readerApp").scrollIntoView({ behavior: "smooth" });
   setBook("selfLearning");
+});
+
+document.getElementById("openTeacherManual").addEventListener("click", () => {
+  document.getElementById("readerApp").scrollIntoView({ behavior: "smooth" });
+  setBook("teacherManual");
 });
 
 document.getElementById("menuBtn").addEventListener("click", () => sidebar.classList.add("open"));

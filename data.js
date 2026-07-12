@@ -921,5 +921,377 @@ const books = [
         featured: true
       }
     ]
+  },
+  {
+    id: "teacherManual",
+    title: "老師使用說明書",
+    subtitle: "楓香故事集",
+    description: "透過三位不同風格的老師，帶領讀者看見和平實小師生互動、班級經營與友誼建立的各種樣貌。",
+    totalPages: 327,
+    cover: "assets/books/teacher-manual/cover.png",
+    backCover: "assets/books/teacher-manual/back-cover.png",
+    imagePattern: "assets/books/teacher-manual/page-{page}.png",
+    stories: [
+      {
+        id: "01",
+        number: "01",
+        title: "老師，我不會！",
+        author: "劉宇捷",
+        chapter: "第一章 全天候保母模式啟動",
+        section: "第一節 袋鼠老師是媽媽？！",
+        startPage: 1,
+        featured: true
+      },
+      {
+        id: "02",
+        number: "02",
+        title: "作業是什麼？還要寫！",
+        author: "謝忻桐",
+        chapter: "第一章 全天候保母模式啟動",
+        section: "第一節 袋鼠老師是媽媽？！",
+        startPage: 11,
+        featured: true
+      },
+      {
+        id: "03",
+        number: "03",
+        title: "書包不見了",
+        author: "謝忻桐",
+        chapter: "第一章 全天候保母模式啟動",
+        section: "第一節 袋鼠老師是媽媽？！",
+        startPage: 19,
+        featured: false
+      },
+      {
+        id: "04",
+        number: "04",
+        title: "老師，我、我、我！",
+        author: "謝忻桐",
+        chapter: "第一章 全天候保母模式啟動",
+        section: "第一節 袋鼠老師是媽媽？！",
+        startPage: 27,
+        featured: true
+      },
+      {
+        id: "05",
+        number: "05",
+        title: "我要告老師",
+        author: "謝忻桐",
+        chapter: "第一章 全天候保母模式啟動",
+        section: "第二節 老師！他不跟我好了！",
+        startPage: 35,
+        featured: false
+      },
+      {
+        id: "06",
+        number: "06",
+        title: "老師！他嘲笑我",
+        author: "劉宇捷",
+        chapter: "第一章 全天候保母模式啟動",
+        section: "第二節 老師！他不跟我好了！",
+        startPage: 43,
+        featured: true
+      },
+      {
+        id: "07",
+        number: "07",
+        title: "老師他打我",
+        author: "劉宇捷",
+        chapter: "第一章 全天候保母模式啟動",
+        section: "第二節 老師！他不跟我好了！",
+        startPage: 51,
+        featured: false
+      },
+      {
+        id: "08",
+        number: "08",
+        title: "老師我牙齒掉了！",
+        author: "劉宇捷",
+        chapter: "第一章 全天候保母模式啟動",
+        section: "第二節 老師！他不跟我好了！",
+        startPage: 59,
+        featured: true
+      },
+      {
+        id: "09",
+        number: "09",
+        title: "第一次被老師罵",
+        author: "黃琳軒",
+        chapter: "第一章 全天候保母模式啟動",
+        section: "第三節 老師不喜歡我了",
+        startPage: 65,
+        featured: false
+      },
+      {
+        id: "10",
+        number: "10",
+        title: "老師不聽我說話",
+        author: "黃琳軒",
+        chapter: "第一章 全天候保母模式啟動",
+        section: "第三節 老師不喜歡我了",
+        startPage: 79,
+        featured: true
+      },
+      {
+        id: "11",
+        number: "11",
+        title: "我舉手老師都不點我",
+        author: "黃琳軒",
+        chapter: "第一章 全天候保母模式啟動",
+        section: "第三節 老師不喜歡我了",
+        startPage: 89,
+        featured: false
+      },
+      {
+        id: "12",
+        number: "12",
+        title: "老師不教我寫作業",
+        author: "黃琳軒",
+        chapter: "第一章 全天候保母模式啟動",
+        section: "第三節 老師不喜歡我了",
+        startPage: 97,
+        featured: true
+      },
+      {
+        id: "13",
+        number: "13",
+        title: "老師的真面目",
+        author: "楊環羽",
+        chapter: "第二章 當老師變成猴",
+        section: "第一節 初次見面老師！",
+        startPage: 103,
+        featured: true
+      },
+      {
+        id: "14",
+        number: "14",
+        title: "哈哈哈，真幽默",
+        author: "馮樂恩",
+        chapter: "第二章 當老師變成猴",
+        section: "第一節 初次見面老師！",
+        startPage: 113,
+        featured: false
+      },
+      {
+        id: "15",
+        number: "15",
+        title: "老師有點呆",
+        author: "馮樂恩",
+        chapter: "第二章 當老師變成猴",
+        section: "第一節 初次見面老師！",
+        startPage: 125,
+        featured: true
+      },
+      {
+        id: "16",
+        number: "16",
+        title: "放學後的老師",
+        author: "廖宥銘",
+        chapter: "第二章 當老師變成猴",
+        section: "第二節 猴子老師的秘密",
+        startPage: 139,
+        featured: false
+      },
+      {
+        id: "17",
+        number: "17",
+        title: "老師⋯是你嗎？",
+        author: "楊環羽",
+        chapter: "第二章 當老師變成猴",
+        section: "第二節 猴子老師的秘密",
+        startPage: 147,
+        featured: true
+      },
+      {
+        id: "18",
+        number: "18",
+        title: "哼，我跟你絕交",
+        author: "廖宥銘",
+        chapter: "第二章 當老師變成猴",
+        section: "第二節 猴子老師的秘密",
+        startPage: 155,
+        featured: false
+      },
+      {
+        id: "19",
+        number: "19",
+        title: "棕熊你很煩欸！",
+        author: "廖宥銘",
+        chapter: "第二章 當老師變成猴",
+        section: "第三節 我討厭你",
+        startPage: 165,
+        featured: true
+      },
+      {
+        id: "20",
+        number: "20",
+        title: "為什麼呀！",
+        author: "楊環羽",
+        chapter: "第二章 當老師變成猴",
+        section: "第三節 我討厭你",
+        startPage: 175,
+        featured: false
+      },
+      {
+        id: "21",
+        number: "21",
+        title: "終於結束了",
+        author: "馮樂恩",
+        chapter: "第二章 當老師變成猴",
+        section: "第三節 我討厭你",
+        startPage: 187,
+        featured: true
+      },
+      {
+        id: "22",
+        number: "22",
+        title: "我還沒準備好",
+        author: "廖宥銘",
+        chapter: "第二章 當老師變成猴",
+        section: "第四節 拜拜，猴子",
+        startPage: 199,
+        featured: false
+      },
+      {
+        id: "23",
+        number: "23",
+        title: "老師使用說明書",
+        author: "馮樂恩",
+        chapter: "第二章 當老師變成猴",
+        section: "第四節 拜拜，猴子",
+        startPage: 207,
+        featured: true
+      },
+      {
+        id: "24",
+        number: "24",
+        title: "謝謝你，猴子老師",
+        author: "楊環羽",
+        chapter: "第二章 當老師變成猴",
+        section: "第四節 拜拜，猴子",
+        startPage: 217,
+        featured: false
+      },
+      {
+        id: "25",
+        number: "25",
+        title: "當羊咩咩老師遇到蝙蝠學生",
+        author: "杜京霏",
+        chapter: "第三章 解鎖隱藏的友誼模式",
+        section: "第一節 羊咩咩老師",
+        startPage: 225,
+        featured: true
+      },
+      {
+        id: "26",
+        number: "26",
+        title: "當羊咩咩老師遇到海豚學生",
+        author: "杜京霏",
+        chapter: "第三章 解鎖隱藏的友誼模式",
+        section: "第一節 羊咩咩老師",
+        startPage: 241,
+        featured: false
+      },
+      {
+        id: "27",
+        number: "27",
+        title: "當羊咩咩老師遇到水母學生",
+        author: "杜京霏",
+        chapter: "第三章 解鎖隱藏的友誼模式",
+        section: "第一節 羊咩咩老師",
+        startPage: 253,
+        featured: true
+      },
+      {
+        id: "28",
+        number: "28",
+        title: "當羊咩咩老師遇到白頰山雀學生",
+        author: "杜京霏",
+        chapter: "第三章 解鎖隱藏的友誼模式",
+        section: "第一節 羊咩咩老師",
+        startPage: 261,
+        featured: false
+      },
+      {
+        id: "29",
+        number: "29",
+        title: "當貓咪老師遇到蝙蝠學生",
+        author: "蔡秉辰",
+        chapter: "第三章 解鎖隱藏的友誼模式",
+        section: "第二節 貓咪老師",
+        startPage: 271,
+        featured: true
+      },
+      {
+        id: "30",
+        number: "30",
+        title: "當貓咪老師遇到海豚學生",
+        author: "蔡秉辰",
+        chapter: "第三章 解鎖隱藏的友誼模式",
+        section: "第二節 貓咪老師",
+        startPage: 279,
+        featured: false
+      },
+      {
+        id: "31",
+        number: "31",
+        title: "當貓咪老師遇到水母學生",
+        author: "蔡秉辰",
+        chapter: "第三章 解鎖隱藏的友誼模式",
+        section: "第二節 貓咪老師",
+        startPage: 285,
+        featured: true
+      },
+      {
+        id: "32",
+        number: "32",
+        title: "當貓咪老師遇到白頰山雀學生",
+        author: "蔡秉辰",
+        chapter: "第三章 解鎖隱藏的友誼模式",
+        section: "第二節 貓咪老師",
+        startPage: 295,
+        featured: false
+      },
+      {
+        id: "33",
+        number: "33",
+        title: "當暴龍老師遇到蝙蝠學生",
+        author: "陳逸珊",
+        chapter: "第三章 解鎖隱藏的友誼模式",
+        section: "第三節 暴龍老師",
+        startPage: 301,
+        featured: true
+      },
+      {
+        id: "34",
+        number: "34",
+        title: "當暴龍老師遇到海豚學生",
+        author: "陳逸珊",
+        chapter: "第三章 解鎖隱藏的友誼模式",
+        section: "第三節 暴龍老師",
+        startPage: 309,
+        featured: false
+      },
+      {
+        id: "35",
+        number: "35",
+        title: "當暴龍老師遇到水母學生",
+        author: "陳逸珊",
+        chapter: "第三章 解鎖隱藏的友誼模式",
+        section: "第三節 暴龍老師",
+        startPage: 315,
+        featured: true
+      },
+      {
+        id: "36",
+        number: "36",
+        title: "當暴龍老師遇到白頰山雀學生",
+        author: "陳逸珊",
+        chapter: "第三章 解鎖隱藏的友誼模式",
+        section: "第三節 暴龍老師",
+        startPage: 321,
+        featured: false
+      }
+    ]
   }
 ];

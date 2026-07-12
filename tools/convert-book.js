@@ -16,6 +16,10 @@ const BOOKS = {
   "self-learning": {
     pdf: "pdf/self-learning.pdf",
     output: "assets/books/self-learning"
+  },
+  "teacher-manual": {
+    pdf: "pdf/teacher-manual.pdf",
+    output: "assets/books/teacher-manual"
   }
 };
 
@@ -28,6 +32,7 @@ if (!BOOKS[book]) {
 node tools/convert-book.js strange
 node tools/convert-book.js fengxiang
 node tools/convert-book.js self-learning
+node tools/convert-book.js teacher-manual
 `);
   process.exit(1);
 }
