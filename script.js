@@ -52,7 +52,7 @@ function syncStoryIndexByPage(page) {
 function supportsCoverPages(book) {
   return Boolean(
     book &&
-    ["strange", "fengxiang", "selfLearning", "teacherManual"].includes(book.id)
+    ["strange", "fengxiang", "selfLearning", "teacherManual", "family"].includes(book.id)
   );
 }
 
