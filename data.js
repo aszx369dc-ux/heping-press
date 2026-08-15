@@ -1294,7 +1294,7 @@ const books = [
       }
     ]
   },
-    {
+{
     id: "family",
     title: "家族大小事",
     subtitle: "和平故事集",
@@ -1306,14 +1306,292 @@ const books = [
     stories: [
       {
         number: "01",
-        chapter: "全篇",
-        title: "家族大小事",
-        author: "和平實小學生",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第一節 天空家族",
+        title: "中秋慶典的靈魂",
+        author: "王晨昕",
         startPage: 1,
         featured: true
+      },
+      {
+        number: "02",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第一節 天空家族",
+        title: "金柚盃的魔咒",
+        author: "王宥勻",
+        startPage: 8,
+        featured: false
+      },
+      {
+        number: "03",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第一節 天空家族",
+        title: "選大隊長的那一天",
+        author: "王宥勻",
+        startPage: 15,
+        featured: false
+      },
+      {
+        number: "04",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第二節 海洋家族",
+        title: "夏季慶典的由來",
+        author: "詹牧學",
+        startPage: 23,
+        featured: true
+      },
+      {
+        number: "05",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第二節 海洋家族",
+        title: "海洋的神秘據點",
+        author: "張珈嘉",
+        startPage: 30,
+        featured: true
+      },
+      {
+        number: "06",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第二節 海洋家族",
+        title: "守護獸的誕生",
+        author: "張珈嘉",
+        startPage: 37,
+        featured: false
+      },
+      {
+        number: "07",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第三節 樹居家族",
+        title: "春季慶典的由來",
+        author: "陳珊妏",
+        startPage: 45,
+        featured: false
+      },
+      {
+        number: "08",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第三節 樹居家族",
+        title: "拉夫謝爾族",
+        author: "陳珊妏",
+        startPage: 52,
+        featured: true
+      },
+      {
+        number: "09",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第三節 樹居家族",
+        title: "樹居家的12顆守護樹",
+        author: "楊予實",
+        startPage: 59,
+        featured: true
+      },
+      {
+        number: "10",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第四節 大地家族",
+        title: "為什麼要講故事",
+        author: "王晴羚",
+        startPage: 67,
+        featured: true
+      },
+      {
+        number: "11",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第四節 大地家族",
+        title: "冬至慶典的由來",
+        author: "陳薇方",
+        startPage: 74,
+        featured: false
+      },
+      {
+        number: "12",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第四節 大地家族",
+        title: "大地家守護獸",
+        author: "陳薇方",
+        startPage: 81,
+        featured: true
+      },
+      {
+        number: "13",
+        chapter: "第二章 那些令人難忘的家族回憶｜第一節 天空家族",
+        title: "第一次圍著火光",
+        author: "王晨昕",
+        startPage: 89,
+        featured: false
+      },
+      {
+        number: "14",
+        chapter: "第二章 那些令人難忘的家族回憶｜第一節 天空家族",
+        title: "被照顧的那些年",
+        author: "王晨昕",
+        startPage: 96,
+        featured: true
+      },
+      {
+        number: "15",
+        chapter: "第二章 那些令人難忘的家族回憶｜第一節 天空家族",
+        title: "再次喜歡的聊天時間",
+        author: "王宥勻",
+        startPage: 104,
+        featured: true
+      },
+      {
+        number: "16",
+        chapter: "第二章 那些令人難忘的家族回憶｜第二節 海洋家族",
+        title: "看海洋奇緣2",
+        author: "詹牧學",
+        startPage: 111,
+        featured: false
+      },
+      {
+        number: "17",
+        chapter: "第二章 那些令人難忘的家族回憶｜第二節 海洋家族",
+        title: "走繩的啟發",
+        author: "詹牧學",
+        startPage: 118,
+        featured: false
+      },
+      {
+        number: "18",
+        chapter: "第二章 那些令人難忘的家族回憶｜第二節 海洋家族",
+        title: "金柚盃的勝利",
+        author: "張珈嘉",
+        startPage: 126,
+        featured: true
+      },
+      {
+        number: "19",
+        chapter: "第二章 那些令人難忘的家族回憶｜第三節 樹居家族",
+        title: "樹居潑水節",
+        author: "陳珊妏",
+        startPage: 133,
+        featured: false
+      },
+      {
+        number: "20",
+        chapter: "第二章 那些令人難忘的家族回憶｜第三節 樹居家族",
+        title: "我們最愛的潑水節",
+        author: "楊予實",
+        startPage: 140,
+        featured: true
+      },
+      {
+        number: "21",
+        chapter: "第二章 那些令人難忘的家族回憶｜第三節 樹居家族",
+        title: "危機的攀樹課",
+        author: "楊予實",
+        startPage: 148,
+        featured: true
+      },
+      {
+        number: "22",
+        chapter: "第二章 那些令人難忘的家族回憶｜第三節 樹居家族",
+        title: "家族時間看電影",
+        author: "楊予實",
+        startPage: 155,
+        featured: false
+      },
+      {
+        number: "23",
+        chapter: "第二章 那些令人難忘的家族回憶｜第四節 大地家族",
+        title: "唱感謝之歌",
+        author: "王晴羚",
+        startPage: 162,
+        featured: false
+      },
+      {
+        number: "24",
+        chapter: "第二章 那些令人難忘的家族回憶｜第四節 大地家族",
+        title: "練金柚盃的歌",
+        author: "王晴羚",
+        startPage: 170,
+        featured: true
+      },
+      {
+        number: "25",
+        chapter: "第二章 那些令人難忘的家族回憶｜第四節 大地家族",
+        title: "第二次金柚盃冠軍",
+        author: "陳薇方",
+        startPage: 177,
+        featured: false
+      },
+      {
+        number: "26",
+        chapter: "第二章 那些令人難忘的家族回憶｜第四節 大地家族",
+        title: "冬至慶典當關主",
+        author: "劉裕宸",
+        startPage: 185,
+        featured: true
+      },
+      {
+        number: "27",
+        chapter: "第三章 那些不能和長老說的事｜第一節 天空家族",
+        title: "有規律的家族課",
+        author: "王晨昕",
+        startPage: 192,
+        featured: false
+      },
+      {
+        number: "28",
+        chapter: "第三章 那些不能和長老說的事｜第一節 天空家族",
+        title: "那段不想說早安的日子",
+        author: "王宥勻",
+        startPage: 199,
+        featured: true
+      },
+      {
+        number: "29",
+        chapter: "第三章 那些不能和長老說的事｜第二節 海洋家族",
+        title: "拖堂大革命",
+        author: "詹牧學",
+        startPage: 207,
+        featured: true
+      },
+      {
+        number: "30",
+        chapter: "第三章 那些不能和長老說的事｜第二節 海洋家族",
+        title: "無法控制的弟弟妹妹",
+        author: "張珈嘉",
+        startPage: 214,
+        featured: false
+      },
+      {
+        number: "31",
+        chapter: "第三章 那些不能和長老說的事｜第三節 樹居家族",
+        title: "唱歌根本是我們的惡夢",
+        author: "陳珊妏",
+        startPage: 221,
+        featured: true
+      },
+      {
+        number: "32",
+        chapter: "第三章 那些不能和長老說的事｜第三節 樹居家族",
+        title: "守護樹之心",
+        author: "楊予實",
+        startPage: 229,
+        featured: false
+      },
+      {
+        number: "33",
+        chapter: "第三章 那些不能和長老說的事｜第四節 大地家族",
+        title: "難以控制的小孩",
+        author: "王晴羚",
+        startPage: 236,
+        featured: true
+      },
+      {
+        number: "34",
+        chapter: "第三章 那些不能和長老說的事｜第四節 大地家族",
+        title: "黃色糾察隊",
+        author: "陳薇方",
+        startPage: 243,
+        featured: true
+      },
+      {
+        number: "35",
+        chapter: "第三章 那些不能和長老說的事｜第四節 大地家族",
+        title: "每次都做一樣的事",
+        author: "劉裕宸",
+        startPage: 251,
+        featured: false
+      },
+      {
+        number: "36",
+        chapter: "第三章 那些不能和長老說的事｜第四節 大地家族",
+        title: "打招呼不是很好玩",
+        author: "劉裕宸",
+        startPage: 258,
+        featured: false
       }
     ]
   },
-  
-  
 ];
