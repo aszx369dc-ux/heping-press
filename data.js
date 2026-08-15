@@ -1293,7 +1293,27 @@ const books = [
         featured: false
       }
     ]
-  }
+  },
+    {
+    id: "family",
+    title: "家族大小事",
+    subtitle: "和平故事集",
+    description: "從四大家族的起源和慶典，到與長老和小家人間相處日常。",
+    totalPages: 266,
+    cover: "assets/books/family/cover.png",
+    backCover: "assets/books/family/back-cover.png",
+    imagePattern: "assets/books/family/page-{page}.png",
+    stories: [
+      {
+        number: "01",
+        chapter: "全篇",
+        title: "家族大小事",
+        author: "和平實小學生",
+        startPage: 1,
+        featured: true
+      }
+    ]
+  },
   
   
 ];
