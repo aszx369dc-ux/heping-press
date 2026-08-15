@@ -400,6 +400,11 @@ document.getElementById("openTeacherManual").addEventListener("click", () => {
   setBook("teacherManual");
 });
 
+document.getElementById("openFamily").addEventListener("click", () => {
+  document.getElementById("readerApp").scrollIntoView({ behavior: "smooth" });
+  setBook("family");
+});
+
 document.getElementById("menuBtn").addEventListener("click", () => sidebar.classList.add("open"));
 document.getElementById("closeMenu").addEventListener("click", () => sidebar.classList.remove("open"));
 document.getElementById("focusBtn").addEventListener("click", () => document.body.classList.toggle("focus"));
