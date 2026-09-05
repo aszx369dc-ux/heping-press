@@ -1894,3 +1894,5 @@ const books = [
         featured: true
       }
     ]
+  }
+];
