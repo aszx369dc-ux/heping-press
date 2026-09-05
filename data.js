@@ -1,5 +1,25 @@
 const books = [
   {
+    id: "strange",
+    title: "奇聞異事",
+    subtitle: "楓香故事集",
+    description: "怪奇、荒謬、幽默與想像的校園故事集。",
+    totalPages: 36,
+    cover: "assets/books/strange/cover.png",
+    backCover: "assets/books/strange/back-cover.png",
+    imagePattern: "assets/books/strange/page-{page}.png",
+    stories: [
+      {
+        number: "01",
+        chapter: "第一章",
+        title: "開端",
+        author: "校稿組同學",
+        startPage: 1,
+        featured: true
+      }
+    ]
+  },
+  {
     id: "fengxiang",
     title: "楓香大小事",
     subtitle: "楓香故事集",
@@ -1521,7 +1541,7 @@ const books = [
         featured: true
       },
       {
-        number: "35",
+        number: "34",
         chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
         title: "拒絕情勒，人人有責！",
         author: "洪語謙",
@@ -1529,7 +1549,7 @@ const books = [
         featured: false
       },
       {
-        number: "36",
+        number: "35",
         chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
         title: "絕交",
         author: "林梓祈",
@@ -1537,7 +1557,7 @@ const books = [
         featured: true
       },
       {
-        number: "37",
+        number: "36",
         chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
         title: "男女之間的純友情 不！不可能！",
         author: "林嚞",
@@ -1545,7 +1565,7 @@ const books = [
         featured: true
       },
       {
-        number: "38",
+        number: "37",
         chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
         title: "在學校裡的特殊同學",
         author: "周謙樂",
