@@ -1587,4 +1587,167 @@ const books = [
       }
     ]
   },
-];
+{
+    id: "relationship",
+    title: "人際關係",
+    subtitle: "和平故事集",
+    description: "記錄和平實小學生在同儕互動、相處磨合與成長中的真實故事。",
+    totalPages: 161, 
+    cover: "assets/books/relationship/cover.png",
+    backCover: "assets/books/relationship/back-cover.png",
+    imagePattern: "assets/books/relationship/page-{page}.png",
+     stories: [
+      {
+        number: "01",
+        chapter: "第一章 尋找契合的靈魂",
+        title: "新朋友新事情",
+        author: "林梓祈",
+        startPage: 1,
+        featured: false
+      },
+      {
+        number: "02",
+        chapter: "第一章 尋找契合的靈魂",
+        title: "朋友之間的互動",
+        author: "周謙樂",
+        startPage: 11,
+        featured: false
+      },
+      {
+        number: "03",
+        chapter: "第一章 尋找契合的靈魂",
+        title: "我跟他／她沒有關係！",
+        author: "陳芊嵐",
+        startPage: 21,
+        featured: false
+      },
+      {
+        number: "04",
+        chapter: "第二章 友情的平衡木",
+        title: "被取代的位子",
+        author: "劉柔妤",
+        startPage: 31,
+        featured: false
+      },
+      {
+        number: "05",
+        chapter: "第二章 友情的平衡木",
+        title: "城堡攻防戰（上）",
+        author: "洪語謙",
+        startPage: 41,
+        featured: false
+      },
+      {
+        number: "06",
+        chapter: "第二章 友情的平衡木",
+        title: "球場30分鐘保衛戰（上）",
+        author: "洪語謙",
+        startPage: 51,
+        featured: false
+      },
+      {
+        number: "07",
+        chapter: "第二章 友情的平衡木",
+        title: "城堡攻防戰（下）",
+        author: "林嚞",
+        startPage: 61,
+        featured: false
+      },
+      {
+        number: "08",
+        chapter: "第二章 友情的平衡木",
+        title: "這玩笑不開也罷",
+        author: "林嚞",
+        startPage: 71,
+        featured: false
+      },
+      {
+        number: "09",
+        chapter: "第三章 友達以上？社交困難症",
+        title: "分組噩夢",
+        author: "陳奕廷",
+        startPage: 81,
+        featured: false
+      },
+      {
+        number: "10",
+        chapter: "第三章 友達以上？社交困難症",
+        title: "與討厭的人成為朋友？",
+        author: "陳奕廷",
+        startPage: 91,
+        featured: false
+      },
+      {
+        number: "11",
+        chapter: "第三章 友達以上？社交困難症",
+        title: "表裡不一的人最討厭了！",
+        author: "黃宇唯",
+        startPage: 101,
+        featured: false
+      },
+      {
+        number: "12",
+        chapter: "第三章 友達以上？社交困難症",
+        title: "大家都真的討厭他嗎？",
+        author: "黃宇唯",
+        startPage: 111,
+        featured: false
+      },
+      {
+        number: "13",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "友情穩定成長的過程",
+        author: "陳宇樂",
+        startPage: 121,
+        featured: false
+      },
+      {
+        number: "14",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "那些年我們一起做的壞事",
+        author: "劉柔妤",
+        startPage: 131,
+        featured: false
+      },
+      {
+        number: "15",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "三人小圈圈太擠了！",
+        author: "黃宇唯",
+        startPage: 141,
+        featured: false
+      },
+      {
+        number: "16",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "你想我想都不一樣",
+        author: "陳芊嵐",
+        startPage: 151,
+        featured: false
+      },
+      {
+        number: "17",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "絕交",
+        author: "林梓祈",
+        startPage: 161,
+        featured: false
+      },
+      {
+        number: "18",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "男女之間的純友情 不！不可能！",
+        author: "林嚞",
+        startPage: 171,
+        featured: false
+      },
+      {
+        number: "19",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "在學校裡的特殊同學",
+        author: "周謙樂",
+        startPage: 181,
+        featured: false
+      }
+    ]
+  }
