@@ -1592,7 +1592,7 @@ const books = [
     title: "人際關係",
     subtitle: "和平故事集",
     description: "記錄和平實小學生在同儕互動、相處磨合與成長中的真實故事。",
-    totalPages: 161, 
+    totalPages: 105, 
     cover: "assets/books/relationship/cover.png",
     backCover: "assets/books/relationship/back-cover.png",
     imagePattern: "assets/books/relationship/page-{page}.png",
