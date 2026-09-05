@@ -413,6 +413,13 @@ document.getElementById("openFamily").addEventListener("click", () => {
   setBook("family");
 });
 
+const relBtn = document.getElementById("openRelationship");
+if (relBtn) {
+  relBtn.addEventListener("click", () => {
+    document.getElementById("readerApp").scrollIntoView({ behavior: "smooth" });
+    setBook("relationship");
+  });
+}
 document.getElementById("menuBtn").addEventListener("click", () => sidebar.classList.add("open"));
 document.getElementById("closeMenu").addEventListener("click", () => sidebar.classList.remove("open"));
 document.getElementById("focusBtn").addEventListener("click", () => document.body.classList.toggle("focus"));
