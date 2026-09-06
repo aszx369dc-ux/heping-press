@@ -1,42 +1,3 @@
-function getBook(bookId) {
-  return books.find(book => book.id === bookId) || null;
-}
-
-function getStory(bookId, storyIndex) {
-  const book = getBook(bookId);
-  if (!book || !book.stories || storyIndex < 0 || storyIndex >= book.stories.length) {
-    return null;
-  }
-  return book.stories[storyIndex];
-}
-
-function getStoryEndPage(bookId, storyIndex) {
-  const book = getBook(bookId);
-  if (!book || !book.stories) {
-    return null;
-  }
-
-  const story = getStory(bookId, storyIndex);
-  if (!story) {
-    return null;
-  }
-
-  if (storyIndex < book.stories.length - 1) {
-    return book.stories[storyIndex + 1].startPage - 1;
-  }
-
-  return book.totalPages;
-}
-
-function getPageImage(bookId, page) {
-  const book = getBook(bookId);
-  if (!book || !book.imagePattern) {
-    return null;
-  }
-
-  return book.imagePattern.replace('{page}', String(page).padStart(3, '0'));
-}
-
 const books = [
   {
     id: "strange",
@@ -342,11 +303,10 @@ const books = [
     id: "fengxiang",
     title: "楓香辭典",
     subtitle: "楓香故事集",
-    description: "以外星人艾利恩的視角，紀錄和平實驗小學的生活與文化。",
+    description: "和平實驗小學學生的成長與生活紀錄。",
     totalPages: 299,
     cover: "assets/books/fengxiang/cover.png",
     backCover: "assets/books/fengxiang/back-cover.png",
-    imagePattern: "assets/books/fengxiang/page-{page}.png",
     stories: [
       {
         number: "01",
@@ -885,7 +845,7 @@ const books = [
         chapter: "第三章 高年級｜羅妍雪的個展",
         title: "個展冒險",
         author: "李夏澄",
-        startPage: 277,
+        startPage: 275,
         featured: true
       },
       {
@@ -1291,6 +1251,607 @@ const books = [
         section: "第三節 暴龍老師",
         startPage: 321,
         featured: false
+      }
+    ]
+  },
+{
+    id: "family",
+    title: "家族大小事",
+    subtitle: "和平故事集",
+    description: "從四大家族的起源和慶典，到與長老和小家人間相處日常。",
+    totalPages: 266,
+    cover: "assets/books/family/cover.png.png",
+    backCover: "assets/books/family/back-cover.png",
+    imagePattern: "assets/books/family/page-{page}.png",
+    stories: [
+      {
+        number: "01",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第一節 天空家族",
+        title: "中秋慶典的靈魂",
+        author: "王晨昕",
+        startPage: 1,
+        featured: true
+      },
+      {
+        number: "02",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第一節 天空家族",
+        title: "金柚盃的魔咒",
+        author: "王宥勻",
+        startPage: 11,
+        featured: false
+      },
+      {
+        number: "03",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第一節 天空家族",
+        title: "選大隊長的那一天",
+        author: "王宥勻",
+        startPage: 21,
+        featured: false
+      },
+      {
+        number: "04",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第二節 海洋家族",
+        title: "夏季慶典的由來",
+        author: "詹牧學",
+        startPage: 29,
+        featured: true
+      },
+      {
+        number: "05",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第二節 海洋家族",
+        title: "海洋的神秘據點",
+        author: "張珈嘉",
+        startPage: 37,
+        featured: true
+      },
+      {
+        number: "06",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第二節 海洋家族",
+        title: "守護獸的誕生",
+        author: "張珈嘉",
+        startPage: 49,
+        featured: false
+      },
+      {
+        number: "07",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第三節 樹居家族",
+        title: "春季慶典的由來",
+        author: "陳珊妏",
+        startPage: 55,
+        featured: false
+      },
+      {
+        number: "08",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第三節 樹居家族",
+        title: "拉夫謝爾族",
+        author: "陳珊妏",
+        startPage: 67,
+        featured: true
+      },
+      {
+        number: "09",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第三節 樹居家族",
+        title: "樹居家的12顆守護樹",
+        author: "楊予實",
+        startPage: 73,
+        featured: true
+      },
+      {
+        number: "10",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第四節 大地家族",
+        title: "為什麼要講故事",
+        author: "王晴羚",
+        startPage: 81,
+        featured: true
+      },
+      {
+        number: "11",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第四節 大地家族",
+        title: "冬至慶典的由來",
+        author: "陳薇方",
+        startPage: 87,
+        featured: false
+      },
+      {
+        number: "12",
+        chapter: "第一章 那些家族內流傳的傳說與緣由｜第四節 大地家族",
+        title: "大地家守護獸",
+        author: "陳薇方",
+        startPage: 93,
+        featured: true
+      },
+      {
+        number: "13",
+        chapter: "第二章 那些令人難忘的家族回憶｜第一節 天空家族",
+        title: "第一次圍著火光",
+        author: "王晨昕",
+        startPage: 99,
+        featured: false
+      },
+      {
+        number: "14",
+        chapter: "第二章 那些令人難忘的家族回憶｜第一節 天空家族",
+        title: "被照顧的那些年",
+        author: "王晨昕",
+        startPage: 111,
+        featured: true
+      },
+      {
+        number: "15",
+        chapter: "第二章 那些令人難忘的家族回憶｜第一節 天空家族",
+        title: "再次喜歡的聊天時間",
+        author: "王宥勻",
+        startPage: 123,
+        featured: true
+      },
+      {
+        number: "16",
+        chapter: "第二章 那些令人難忘的家族回憶｜第二節 海洋家族",
+        title: "看海洋奇緣2",
+        author: "詹牧學",
+        startPage: 131,
+        featured: false
+      },
+      {
+        number: "17",
+        chapter: "第二章 那些令人難忘的家族回憶｜第二節 海洋家族",
+        title: "走繩的啟發",
+        author: "詹牧學",
+        startPage: 139,
+        featured: false
+      },
+      {
+        number: "18",
+        chapter: "第二章 那些令人難忘的家族回憶｜第二節 海洋家族",
+        title: "金柚盃的勝利",
+        author: "張珈嘉",
+        startPage: 145,
+        featured: true
+      },
+      {
+        number: "19",
+        chapter: "第二章 那些令人難忘的家族回憶｜第三節 樹居家族",
+        title: "樹居潑水節",
+        author: "陳珊妏",
+        startPage: 153,
+        featured: false
+      },
+      {
+        number: "20",
+        chapter: "第二章 那些令人難忘的家族回憶｜第三節 樹居家族",
+        title: "我們最愛的潑水節",
+        author: "楊予實",
+        startPage: 161,
+        featured: true
+      },
+      {
+        number: "21",
+        chapter: "第二章 那些令人難忘的家族回憶｜第三節 樹居家族",
+        title: "危機的攀樹課",
+        author: "楊予實",
+        startPage: 169,
+        featured: true
+      },
+      {
+        number: "22",
+        chapter: "第二章 那些令人難忘的家族回憶｜第三節 樹居家族",
+        title: "家族時間看電影",
+        author: "楊予實",
+        startPage: 177,
+        featured: false
+      },
+      {
+        number: "23",
+        chapter: "第二章 那些令人難忘的家族回憶｜第四節 大地家族",
+        title: "唱感謝之歌",
+        author: "王晴羚",
+        startPage: 183,
+        featured: false
+      },
+      {
+        number: "24",
+        chapter: "第二章 那些令人難忘的家族回憶｜第四節 大地家族",
+        title: "練金柚盃的歌",
+        author: "王晴羚",
+        startPage: 189,
+        featured: true
+      },
+      {
+        number: "25",
+        chapter: "第二章 那些令人難忘的家族回憶｜第四節 大地家族",
+        title: "第二次金柚盃冠軍",
+        author: "陳薇方",
+        startPage: 195,
+        featured: false
+      },
+      {
+        number: "26",
+        chapter: "第二章 那些令人難忘的家族回憶｜第四節 大地家族",
+        title: "冬至慶典當關主",
+        author: "劉裕宸",
+        startPage: 201,
+        featured: true
+      },
+      {
+        number: "27",
+        chapter: "第三章 那些不能和長老說的事｜第一節 天空家族",
+        title: "有規律的家族課",
+        author: "王晨昕",
+        startPage: 205,
+        featured: false
+      },
+      {
+        number: "28",
+        chapter: "第三章 那些不能和長老說的事｜第一節 天空家族",
+        title: "那段不想說早安的日子",
+        author: "王宥勻",
+        startPage: 217,
+        featured: true
+      },
+      {
+        number: "29",
+        chapter: "第三章 那些不能和長老說的事｜第二節 海洋家族",
+        title: "拖堂大革命",
+        author: "詹牧學",
+        startPage: 225,
+        featured: true
+      },
+      {
+        number: "30",
+        chapter: "第三章 那些不能和長老說的事｜第二節 海洋家族",
+        title: "無法控制的弟弟妹妹",
+        author: "張珈嘉",
+        startPage: 233,
+        featured: false
+      },
+      {
+        number: "31",
+        chapter: "第三章 那些不能和長老說的事｜第三節 樹居家族",
+        title: "唱歌根本是我們的惡夢",
+        author: "陳珊妏",
+        startPage: 239,
+        featured: true
+      },
+      {
+        number: "32",
+        chapter: "第三章 那些不能和長老說的事｜第三節 樹居家族",
+        title: "守護樹之心",
+        author: "楊予實",
+        startPage: 247,
+        featured: false
+      },
+      
+      {
+        number: "33",
+        chapter: "第三章 那些不能和長老說的事｜第四節 大地家族",
+        title: "黃色糾察隊",
+        author: "陳薇方",
+        startPage: 253,
+        featured: true
+      },
+      {
+        number: "34",
+        chapter: "第三章 那些不能和長老說的事｜第四節 大地家族",
+        title: "每次都做一樣的事",
+        author: "劉裕宸",
+        startPage: 259,
+        featured: false
+      },
+      {
+        number: "35",
+        chapter: "第三章 那些不能和長老說的事｜第四節 大地家族",
+        title: "打招呼不是很好玩",
+        author: "劉裕宸",
+        startPage: 263,
+        featured: false
+      }
+    ]
+  },
+{
+   id: "relationship",
+    title: "人際關係",
+    subtitle: "和平故事集",
+    description: "記錄和平實小學生在同儕互動、相處磨合與成長中的真實故事。",
+    totalPages: 291, 
+    cover: "assets/books/relationship/cover.png",
+    backCover: "assets/books/relationship/back-cover.png",
+    imagePattern: "assets/books/relationship/page-{page}.png",
+    stories: [
+      {
+        number: "01",
+        chapter: "第一章 尋找契合的靈魂",
+        title: "新朋友新事情",
+        author: "林梓祈",
+        startPage: 1,
+        featured: true
+      },
+      {
+        number: "02",
+        chapter: "第一章 尋找契合的靈魂",
+        title: "朋友「心」事件",
+        author: "林梓祈",
+        startPage: 5,
+        featured: false
+      },
+      {
+        number: "03",
+        chapter: "第一章 尋找契合的靈魂",
+        title: "高年級觀察日記",
+        author: "林梓祈",
+        startPage: 11,
+        featured: false
+      },
+      {
+        number: "04",
+        chapter: "第一章 尋找契合的靈魂",
+        title: "朋友之間的互動",
+        author: "周謙樂",
+        startPage: 17,
+        featured: true
+      },
+      {
+        number: "05",
+        chapter: "第一章 尋找契合的靈魂",
+        title: "開學啦！",
+        author: "李櫂言",
+        startPage: 21,
+        featured: false
+      },
+      {
+        number: "06",
+        chapter: "第一章 尋找契合的靈魂",
+        title: "掰掰，練習說再見",
+        author: "李櫂言",
+        startPage: 25,
+        featured: false
+      },
+      {
+        number: "07",
+        chapter: "第一章 尋找契合的靈魂",
+        title: "歡迎新同學！",
+        author: "李櫂言",
+        startPage: 35,
+        featured: false
+      },
+      {
+        number: "08",
+        chapter: "第一章 尋找契合的靈魂",
+        title: "新的生活，新的開始吧⋯",
+        author: "陳芊嵐",
+        startPage: 47,
+        featured: false
+      },
+      {
+        number: "09",
+        chapter: "第一章 尋找契合的靈魂",
+        title: "我跟他／她沒有關係！",
+        author: "陳芊嵐",
+        startPage: 53,
+        featured: true
+      },
+      {
+        number: "10",
+        chapter: "第一章 尋找契合的靈魂",
+        title: "新同學的魅力？",
+        author: "陳芊嵐",
+        startPage: 67,
+        featured: false
+      },
+      {
+        number: "11",
+        chapter: "第二章 友情的平衡木",
+        title: "百口莫辯的滋味",
+        author: "劉柔妤",
+        startPage: 77,
+        featured: false
+      },
+      {
+        number: "12",
+        chapter: "第二章 友情的平衡木",
+        title: "被取代的位子",
+        author: "劉柔妤",
+        startPage: 83,
+        featured: true
+      },
+      {
+        number: "13",
+        chapter: "第二章 友情的平衡木",
+        title: "好朋友？",
+        author: "劉柔妤",
+        startPage: 89,
+        featured: false
+      },
+      {
+        number: "14",
+        chapter: "第二章 友情的平衡木",
+        title: "城堡攻防戰（上）",
+        author: "洪語謙",
+        startPage: 95,
+        featured: true
+      },
+      {
+        number: "15",
+        chapter: "第二章 友情的平衡木",
+        title: "球場30分鐘保衛戰（上）",
+        author: "洪語謙",
+        startPage: 101,
+        featured: true
+      },
+      {
+        number: "16",
+        chapter: "第二章 友情的平衡木",
+        title: "臭路霸",
+        author: "洪語謙",
+        startPage: 107,
+        featured: false
+      },
+      {
+        number: "17",
+        chapter: "第二章 友情的平衡木",
+        title: "城堡攻防戰（下）",
+        author: "林嚞",
+        startPage: 113,
+        featured: true
+      },
+      {
+        number: "18",
+        chapter: "第二章 友情的平衡木",
+        title: "球場30分鐘保衛戰（下）",
+        author: "林嚞",
+        startPage: 117,
+        featured: false
+      },
+      {
+        number: "19",
+        chapter: "第二章 友情的平衡木",
+        title: "這玩笑不開也罷",
+        author: "林嚞",
+        startPage: 125,
+        featured: true
+      },
+      {
+        number: "20",
+        chapter: "第三章 友達以上？社交困難症",
+        title: "很好的同桌，但是…",
+        author: "陳奕廷",
+        startPage: 131,
+        featured: false
+      },
+      {
+        number: "21",
+        chapter: "第三章 友達以上？社交困難症",
+        title: "分組噩夢",
+        author: "陳奕廷",
+        startPage: 139,
+        featured: true
+      },
+      {
+        number: "22",
+        chapter: "第三章 友達以上？社交困難症",
+        title: "與討厭的人成為朋友？",
+        author: "陳奕廷",
+        startPage: 145,
+        featured: true
+      },
+      {
+        number: "23",
+        chapter: "第三章 友達以上？社交困難症",
+        title: "不能以成績取人啊！",
+        author: "黃宇唯",
+        startPage: 151,
+        featured: false
+      },
+      {
+        number: "24",
+        chapter: "第三章 友達以上？社交困難症",
+        title: "表裡不一的人最討厭了！",
+        author: "黃宇唯",
+        startPage: 161,
+        featured: true
+      },
+      {
+        number: "25",
+        chapter: "第三章 友達以上？社交困難症",
+        title: "大家都真的討厭他嗎？",
+        author: "黃宇唯",
+        startPage: 187,
+        featured: true
+      },
+      {
+        number: "26",
+        chapter: "第三章 友達以上？社交困難症",
+        title: "是喜歡嗎？",
+        author: "陳宇樂",
+        startPage: 199,
+        featured: false
+      },
+      {
+        number: "27",
+        chapter: "第三章 友達以上？社交困難症",
+        title: "喜歡上一個人的過程",
+        author: "陳宇樂",
+        startPage: 205,
+        featured: false
+      },
+      {
+        number: "28",
+        chapter: "第三章 友達以上？社交困難症",
+        title: "高年級時的一眼",
+        author: "陳宇樂",
+        startPage: 211,
+        featured: false
+      },
+      {
+        number: "29",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "他好內向，但我想和他當朋友",
+        author: "李櫂言",
+        startPage: 217,
+        featured: false
+      },
+      {
+        number: "30",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "友情穩定成長的過程",
+        author: "陳宇樂",
+        startPage: 229,
+        featured: true
+      },
+      {
+        number: "31",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "那些年我們一起做的壞事",
+        author: "劉柔妤",
+        startPage: 235,
+        featured: true
+      },
+      {
+        number: "32",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "三人小圈圈太擠了！",
+        author: "黃宇唯",
+        startPage: 243,
+        featured: true
+      },
+      {
+        number: "33",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "你想我想都不一樣",
+        author: "陳芊嵐",
+        startPage: 257,
+        featured: true
+      },
+      {
+        number: "34",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "拒絕情勒，人人有責！",
+        author: "洪語謙",
+        startPage: 269,
+        featured: false
+      },
+      {
+        number: "35",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "絕交",
+        author: "林梓祈",
+        startPage: 275,
+        featured: true
+      },
+      {
+        number: "36",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "男女之間的純友情 不！不可能！",
+        author: "林嚞",
+        startPage: 283,
+        featured: true
+      },
+      {
+        number: "37",
+        chapter: "第四章 人際的真實切面：那些關於「我們」的未竟之言",
+        title: "在學校裡的特殊同學",
+        author: "周謙樂",
+        startPage: 289,
+        featured: true
       }
     ]
   }

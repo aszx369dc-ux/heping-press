@@ -25,7 +25,7 @@
             <p>怪奇、荒謬、幽默與想像的校園故事集。</p>
             <div class="card-footer">
               <span class="card-note">點擊：進入原本閱讀器</span>
-              <button id="startReading" class="card-action" type="button">進入閱讀</button>
+              <button id="startReading" class="card-action" type="button" data-book="strange">進入閱讀</button>
             </div>
           </div>
         </div>
@@ -37,7 +37,7 @@
             <p>以外星人艾利恩的視角記錄和平實小校園生活。</p>
             <div class="card-footer">
               <span class="card-note">點擊：進入閱讀器閱讀</span>
-              <button id="openDictionary" class="card-action secondary" type="button">進入閱讀</button>
+              <button id="openDictionary" class="card-action secondary" type="button" data-book="dictionary">進入閱讀</button>
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@
             <p>從自主探索、選修課到個展，記錄角色在學習中的選擇、挫折與成長。</p>
             <div class="card-footer">
               <span class="card-note">點擊：進入閱讀器閱讀</span>
-              <button id="openSelfLearning" class="card-action secondary" type="button">進入閱讀</button>
+              <button id="openSelfLearning" class="card-action secondary" type="button" data-book="selfLearning">進入閱讀</button>
             </div>
           </div>
         </div>
@@ -61,27 +61,51 @@
             <p>從低年級對老師的依賴，到師生磨合與不同教學風格的相遇，記錄和平實小師生之間真實又有趣的互動。</p>
             <div class="card-footer">
               <span class="card-note">點擊：進入閱讀器閱讀</span>
-              <button id="openTeacherManual" class="card-action secondary" type="button">進入閱讀</button>
+              <button id="openTeacherManual" class="card-action secondary" type="button" data-book="teacherManual">進入閱讀</button>
             </div>
           </div>
         </div>
+
+        <div class="library-card">
+          <div class="card-visual">📔</div>
+          <div class="card-body">
+            <h3>家族大小事</h3>
+            <p>從四大家族的起源和慶典，到與長老和小家人間的相處日常。</p>
+            <div class="card-footer">
+              <span class="card-note">點擊：進入閱讀器閱讀</span>
+              <button id="openFamily" class="card-action secondary" type="button" data-book="family">進入閱讀</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="library-card">
+          <div class="card-visual">📙</div>
+          <div class="card-body">
+            <h3>人際關係</h3>
+            <p>記錄和平實小學生在同儕互動、相處磨合與成長中的真實故事。</p>
+            <div class="card-footer">
+              <span class="card-note">點擊：進入閱讀器閱讀</span>
+              <button id="openRelationship" class="card-action secondary" type="button" data-book="relationship">進入閱讀</button>
+            </div>
+          </div>
+        </div>  
       </div>
     </div>
   </section>
 
   <section id="library" class="book-intro">
     <div class="book-cover">
-      <img id="bookCoverImage" class="book-cover-image" alt="" hidden />
-      <div class="book-cover-text">
-        <p>楓香故事集</p>
-        <h2>奇聞異事</h2>
+      <img id="bookCoverImage" class="book-cover-image" alt="書本封面" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px; display: none;" />
+      <div id="bookCoverFallback" class="book-cover-text">
+        <p id="coverSubtitle">和平故事集</p>
+        <h2 id="coverTitle">和平故事集</h2>
         <span>2025-2026</span>
       </div>
     </div>
     <div class="book-about">
       <p class="eyebrow">About this book</p>
-      <h2>一本由孩子共同打造的和平怪奇宇宙</h2>
-      <p>這裡收錄《奇聞異事》全 36 篇故事。家長可以依照章節閱讀，也可以直接從第一篇開始，一頁一頁翻到最後。</p>
+      <h2 id="aboutBookTitle">和平故事集</h2>
+      <p id="aboutBookDesc"></p>
       <div id="bookStats" class="stats"></div>
     </div>
   </section>
@@ -91,7 +115,7 @@
       <div class="side-head">
         <button id="closeMenu" class="small-btn">關閉</button>
         <p class="eyebrow">目錄</p>
-        <h2>奇聞異事</h2>
+        <h2 id="sidebarBookTitle">故事集目錄</h2>
         <input id="searchInput" type="search" placeholder="搜尋故事、作者、章節…" />
         <div class="filter-row">
           <button class="filter active" data-filter="all">全部</button>
