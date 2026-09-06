@@ -1554,7 +1554,6 @@ const books = [
     description: "記錄和平實小學生在同儕互動、相處磨合與成長中的真實故事。",
     totalPages: 291, 
     cover: "assets/books/relationship/cover.png",
-    backCover: "assets/books/relationship/back-cover.png",
     imagePattern: "assets/books/relationship/page-{page}.png",
     stories: [
       {
